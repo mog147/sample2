@@ -1,0 +1,539 @@
+/* ------------------ */
+/* 共通 */
+
+/* 基本色 */
+:root {
+  --main-color : #e95792;
+  --accent-color : #67c09f;
+  --sub-color : #79abdc;
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --text-bright-color : #fff; /*rgba(255, 255, 255, 0)*/
+  --icon-color : #e95792;
+  --icon-bk-color : #fff;
+  --large-width:1000px;
+  --middle-width:800px;
+  --small-width:600px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, 
+  ".SFNSDisplay-Regular", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+  Helvetica, "游ゴシック Medium", meiryo, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.1rem;
+  color-scheme: only light;
+  background-color: var(--dark-main-color);
+}
+
+a {
+  text-decoration:none;
+  /* aタグにmarginは効かないから一度ブロックにする必要あり  */
+  display: block;
+  font-size: 42px;
+  color: var(--accent-color);
+}
+
+/* リンクをちょうどいい位置に飛ばす */
+a.anchor {
+  display: block;
+  padding-top: 70px;
+  margin-top: -70px;
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.2rem;
+}
+
+p {
+  color: var(--text-bright-color);
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none
+}
+
+.container {
+  max-width: 600px;
+  max-width: var(--small-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+ /** クラス指定の末尾の文字列が「__text」だったらという指定*/
+ div[class$="__text"] {
+
+  text-align: center;
+  padding:0 6rem;
+  color: var(--text-bright-color);
+  overflow-wrap: anywhere;
+  margin-bottom: 5rem;
+}
+
+
+/* ------------------ */
+/* ロード時にページ全体をフェードイン */
+body {
+animation: fade 3s;
+}
+
+@keyframes fade {
+  0% {opacity: 0;
+  }
+  100% {opacity: 1;
+  }
+}
+
+/* ロード時にページ全体をフェードイン */
+/* ------------------ */
+
+/* ------------------ */
+/*----- header -----*/
+
+.fixed {
+  position: fixed;
+}
+
+.header {
+position: relative;
+
+top: 0;
+left: 0;
+width: 100%;
+
+z-index: 100;
+
+}
+
+.head__icon {
+position: absolute;
+
+z-index: 100;
+top: 1rem;
+left: -1rem;
+width:100vw;
+max-width: 600px;
+
+}
+
+.head__icon__btn{
+display: block;
+font-size: 1rem;
+color: var(--text-bright-color);
+margin-left: auto;
+margin-right: 0;
+padding-right: 0.5rem;
+padding-top: 1.5rem;
+}
+
+
+/* ------------------ */
+/* btn押したときのポヨポヨアニメーション */
+
+.head__icon__btn:active {
+  animation: poyoyon2 1s ease-in-out forwards;
+}
+
+@keyframes poyoyon2 {
+  0%  {
+    transform: scale(1.0, 1.0) translate(0, 0);
+  }
+  15% {
+    transform: scale(0.98, 0.9) translate(0, 5px);
+  }
+  30% {
+    transform: scale(1.02, 1.0) translate(0, 8px);
+  }
+  50% {transform: scale(0.98, 1.05) translate(0, -8px);
+  }
+  70% {
+    transform: scale(1.0, 0.9) translate(0, 5px);
+  }
+  100% {
+    transform: scale(1.0, 1.0) translate(0, 0);
+  }
+  0%, 100% {
+    opacity: 1;
+  }
+  }
+
+/* btn押したときのポヨポヨアニメーション */
+/* ------------------ */
+
+.head__main {
+  display: none;
+  height:100vh;
+  min-height: 700px;
+  width: 100vw;
+  max-width: 600px;
+  position: absolute;
+  z-index: 90;
+  opacity: 1;
+  animation: poyoyon2 1s ease-in-out forwards;
+}
+
+
+.head__menu{
+  
+display: flex;
+flex-flow: column;
+justify-content: center;
+text-align: center;
+
+height: 100vh;
+min-height: 500px;
+width: 100%;
+
+padding-bottom: 10vh;
+padding-right: 0;
+padding-left: 0;
+
+
+background-color: var(--accent-color);
+margin-top: -1rem;
+
+}
+
+
+.head__main li {
+  padding: 0;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+}
+
+.head__main a {
+  display: block;
+  font-size: 1.5rem;
+  padding: 30px;
+  color: var(--text-bright-color);
+  text-decoration:none;
+  letter-spacing: 0.3rem;
+}
+
+
+/*----- header -----*/
+/* ------------------ */
+
+
+/* ------------------ */
+/* title */
+
+/**
+* クラス指定の先頭の文字列がtitleだったらという指定
+*/
+a[class^="title"] {
+  padding-top: 6rem;
+  letter-spacing: 0.3rem;
+  text-align: center;
+
+  /* adobe fonts */
+  font-family: "vdl-gigamaru", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.title {
+  color: var(--main-color);
+}
+
+.titleB {
+  color: var(--accent-color);
+}
+
+.accsent_font {
+  /* adobe fonts */
+  font-family: "vdl-gigamaru", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.sub_title {
+  font-weight:normal;
+  letter-spacing: 0.3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+
+  color: var(--main-color);
+
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+
+  margin-bottom: 3rem;
+  text-decoration: none;
+  
+}
+
+.dammy {
+  opacity: 0.3;
+  font-size: 3.5rem;
+}
+
+/* title */
+/* ------------------ */
+
+/* ------------------ */
+/* footer */
+
+.pink {
+  bottom: 0;
+  width: 100%;	
+  vertical-align: bottom;
+}
+
+.footer {
+  bottom: 0;
+  max-width: 100%;	
+  vertical-align: bottom;
+}
+
+/* footer */
+/* ------------------ */
+
+
+
+/* ------------------ */
+
+.phone {
+  /* 親要素の幅に合わせる */
+  width: fit-content;
+}
+
+/* ------------------ */
+/* ------------------ */ 
+/* conA */
+/* TOP 背景画像あり */
+  
+  .conA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    height:100vh;
+    min-height: 800px;
+    width: 100vw;
+    background-image:url(../img_lp/top.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    padding-bottom: 3rem;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  
+    color: var(--text-bright-color);
+  }
+  
+
+
+  /* conB */
+  /* iconあり */
+
+  .conB {
+    margin-bottom: 5rem;
+  }
+  
+  .scrollbox {
+    width: 100%;
+    background-color: var(--dark-main-color);
+  }
+  
+  .conB__icon {
+    margin: 1rem;
+    width: 80%;
+  }
+
+  .en__name {
+    margin-top: -1.5rem;
+  }
+  
+
+  .sns__list {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .sns__item a{
+    padding:0 1rem;
+  }
+
+  .sns__item a:hover{
+      background-color:rgba(51,51,51,0.1) ;
+  }
+  
+  
+  
+  /* conC */
+  /* カード型左画像 */
+  
+  
+
+
+  .conC__icon {
+    padding: 1rem;
+    width: 50px;
+  }
+  
+div[class*="__photo__contain"] {
+
+  min-height: 200px;
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+
+}
+  
+  .conC__photo__contain-1 {
+    background-image: url(../img_lp/sticker.png);
+  }
+  
+  .conC__photo__contain-2 {
+    background-image: url(../img_lp/batch.png);
+  }
+  
+  .conC__photo__contain-3 {
+    background-image: url(../img_lp/t_shirt.png);
+  }
+
+  div[class*="__photo__cover-"]{
+  min-height: 200px;
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+  .black__filter{
+    min-height: 200px;
+    background-color: rgba(0,0,0,0.6);
+  } 
+
+  .conC__photo__cover-1 {
+    background-image: url(../img_lp/avatar.png);
+    position: relative;
+  }
+  
+  .conC__photo__cover-2 {
+    background-image: url(../img_lp/spot.png);
+    position: relative;
+  }
+  
+  .conC__photo__cover-3 {
+    background-image: url(../img_lp/goods.png);
+    position: relative;
+  }
+  
+  .conC__title {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  
+    font-size: 2rem;
+    opacity: 0.4;
+    color: var(--text-bright-color);
+    letter-spacing: 0.5rem;
+    line-height: 1.5;
+  }
+  
+  .photoA:after,
+  .photoB:after,
+  .photoC:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25,25,25,0.3);
+    }
+  
+  .info {
+    margin-bottom: -80%;
+    word-break: break-all;
+  }
+  
+
+  /* ------------------ */
+/* btn */
+.more_btn {
+
+  /* 上下中央 */
+  font-size: 1rem;
+  color: var(--accent-color);
+
+}
+
+/* btn */
+ /* ------------------ */ 
+
+/* ------------------ */
+/* pege topにとぶ */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
+
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;;
+  color: var(--accent-color);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  color: var(--accent-color);
+}  
+/* ------------------ */

@@ -1,0 +1,24 @@
+/* 基本色 */
+:root {
+  --main-color : #e95792;
+  --accent-color : #67c09f;
+  --sub-color : #79abdc;
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --text-bright-color : #fff; /*rgba(255, 255, 255, 0)*/
+  --icon-color : #e95792;
+  --icon-bk-color : #fff;
+  --large-width:1000px;
+  --middle-width:800px;
+  --small-width:600px;
+}
+ 
+
+
+  
+
+  
+
+
+
+
+    
